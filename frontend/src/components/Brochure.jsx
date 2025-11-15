@@ -7,7 +7,7 @@ const Brochure = () => {
         Our Brochure
       </h2>
       <img
-        src={Brocher_img} // 👈 make sure this image is in your public folder
+        src={Brocher_img} 
         alt="H&H Hair & Hair Salon Brochure"
         className="rounded-xl shadow-2xl max-w-4xl w-[90%]"
       />

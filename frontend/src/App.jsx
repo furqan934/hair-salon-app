@@ -7,31 +7,21 @@ import React from 'react'
 // import Dashboard from './pages/Dashboard'
 import { BrowserRouter,Routes,Router,Route } from 'react-router-dom'
 // import Booking from './pages/Booking'
-import About from './pages/About'
+
 import Header from './components/Header'
 import Hero from './pages/Hero'
+import WhyChoose from './pages/WhyChoose'
+import Pricing from './pages/Pricing'
 
 
 const App = () => {
   return (
     <>
     <div className=''>
-      {/* <Navebar /> */}
-        <Header />
-      {/* <div> */}
-
-        {/* <Routes>/ */}
-          {/* <Route path="/" element={<Home />} > */}
-          {/* </Route> */}
-          {/* <Route path="/brochure" element={<Brochure />} ></Route> */}
-          {/* <Route path="/services" element={<Services />} ></Route>
-          <Route path="/team" element={<Team />} ></Route>
-          <Route path="/dashboard" element={<Dashboard />} ></Route>
-          <Route path="/booking" element={<Booking />} ></Route> */}
-        {/* </Routes> */}
-      {/* </div> */}
+      <Header />
       <Hero />
-      <About />
+      <WhyChoose/>
+      <Pricing/>
       {/* <Services />
       <Team />
       <Booking />
