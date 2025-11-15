@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial;
+}
+
+nav {
+    background: black;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav button {
+    background: pink;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+}
+
+.hero {
+    background: #ffe6f2;
+    text-align: center;
+    padding: 40px;
+}
+
+.services {
+    padding: 20px;
+    text-align: center;
+}
+
+.box {
+    background: #f2f2f2;
+    margin: 10px auto;
+    width: 80%;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+footer {
+    background: black;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}
