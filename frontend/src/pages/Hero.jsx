@@ -98,12 +98,13 @@ const Hero = () => {
       </section>
 
       <section>
-        <div>
+        {/* <div>
           <img src="" alt="" />
           <h1>Regular Hair Cut</h1>
           <button>More</button>
-        </div>
-      </section>  <section className='grid grid-cols-1 md:grid-cols-4 justify-center items-start w-full md:px-[120px] px-10 py-10 gap-10'>
+        </div> */}
+      </section>  
+      <section className='grid grid-cols-1 md:grid-cols-4 justify-center items-start w-full md:px-[120px] px-10 py-10 gap-10'>
       <div 
         data-aos="zoom-in" 
         data-aos-delay="200" 
@@ -115,7 +116,55 @@ const Hero = () => {
           className='size-16 transform hover:scale-110 transition-transform duration-300 cursor-pointer' 
         />
         <h1 className='text-2xl flex-1 text-black font-semibold'>Regular Haircut</h1>
-        <button className='px-10 py-3 bg-black text-white text-md font-semibold rounded-xl hover:bg-yellow hover:text-black cursor-pointer'>
+        <button className='px-10 py-3 bg-black text-white text-md font-semibold rounded-xl  hover:bg-amber-500 hover:text-black cursor-pointer'>
+          MORE
+        </button>
+      </div>
+
+      <div 
+        data-aos="zoom-in" 
+        data-aos-delay="200" 
+        className='flex flex-col justify-center items-center gap-4'
+      >
+        <img 
+          src={menshair} 
+          alt="Scissors" 
+          className='size-16 transform hover:scale-110 transition-transform duration-300 cursor-pointer' 
+        />
+        <h1 className='text-2xl flex-1 text-black font-semibold'>Regular Haircut</h1>
+        <button className='px-10 py-3 bg-black text-white text-md font-semibold rounded-xl  hover:bg-amber-500 hover:text-black cursor-pointer'>
+          MORE
+        </button>
+      </div>
+
+      <div 
+        data-aos="zoom-in" 
+        data-aos-delay="200" 
+        className='flex flex-col justify-center items-center gap-4'
+      >
+        <img 
+          src={womenhair} 
+          alt="Scissors" 
+          className='size-16 transform hover:scale-110 transition-transform duration-300 cursor-pointer' 
+        />
+        <h1 className='text-2xl flex-1 text-black font-semibold'>Regular Haircut</h1>
+        <button className='px-10 py-3 bg-black text-white text-md font-semibold rounded-xl  hover:bg-amber-500 hover:text-black cursor-pointer'>
+          MORE
+        </button>
+      </div>
+
+      <div 
+        data-aos="zoom-in" 
+        data-aos-delay="200" 
+        className='flex flex-col justify-center items-center gap-4'
+      >
+        <img 
+          src={trimmer} 
+          alt="Scissors" 
+          className='size-16 transform hover:scale-110 transition-transform duration-300 cursor-pointer' 
+        />
+        <h1 className='text-2xl flex-1 text-black font-semibold'>Regular Haircut</h1>
+        <button className='px-10 py-3 bg-black text-white text-md font-semibold rounded-xl  hover:bg-amber-500 hover:text-black cursor-pointer'>
           MORE
         </button>
       </div>
