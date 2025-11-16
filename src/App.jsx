@@ -1,35 +1,29 @@
-import React from 'react'
-// import Navebar from './components/Navebar'
-// import Footer from './components/Footer'
-// import Home from './pages/Home'
-// import Services from './pages/Services'
-// // import Team from './pages/Team'
-// import Dashboard from './pages/Dashboard'
-import { BrowserRouter,Routes,Router,Route } from 'react-router-dom'
-// import Booking from './pages/Booking'
-
-import Header from './components/Header'
-import Hero from './pages/Hero'
-import WhyChoose from './pages/WhyChoose'
-import Pricing from './pages/Pricing'
-
+// export default App;
+import React from "react";
+import { Routes, Route } from "react-router-dom"; // ✅ no Router here
+import Header from "./components/Header";
+import Hero from "./pages/Hero";
+import WhyChoose from "./pages/WhyChoose";
+import Pricing from "./pages/Pricing";
+import Appointment from "./components/Appointment";
+import Brochure from "./components/Brochure"
 
 const App = () => {
   return (
     <>
-    <div className=''>
       <Header />
-      <Hero />
-      <WhyChoose/>
-      <Pricing/>
-      {/* <Services />
-      <Team />
-      <Booking />
-      <Dashboard />
-      <Footer /> */}
-    </div>
-    </>
-  )
-}
 
-export default App
+      <Routes>
+        <Route path="/" element={<Hero />} />
+        <Route path="/hero" element={<Hero />} />
+        <Route path="/whyChoose" element={<WhyChoose />} />
+        <Route path="/pricing" element={<Pricing />} />
+        <Route path="/appointment" element={<Appointment />} />
+        <Route path="/brochure" element={<Brochure />} />
+        <Route path="/pricing" element= {<Pricing/>}/>
+      </Routes>
+    </>
+  );
+};
+
+export default App;
