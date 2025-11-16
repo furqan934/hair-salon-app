@@ -1,5 +1,5 @@
 import React from "react";
-import Brocher_img from "../assets/dubi-b.jpg"
+import Brocher_img from "../assets/Images/brochure.jpg"
 const Brochure = () => {
   return (
     <section id="brochure" className="flex flex-col justify-center items-center bg-[#f5f5f5] py-10 min-h-screen">
