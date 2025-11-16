@@ -1,17 +1,24 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaXmark, FaBars } from "react-icons/fa6";
+import Appointment from "./Appointment";
 const Header = () => {
+  // i use navigate for link the appointment comp into button
+  const navigate = useNavigate(); // init an empty navigate
+  const goToAppointment = () => {
+    navigate("/appointment"); // go to appointment
+  };
+
   const [is_menu_open, set_is_menu_open] = useState(false);
   const toggle_menu = () => set_is_menu_open(!is_menu_open);
 
   const nav_items = [
-    { link: "Home", path: "home" },
-    { link: "About", path: "about" },
-    { link: "Services", path: "services" },
-    { link: "Testimonials", path: "testimonials" },
-    { link: "Brochure", path: "brochure" },
-    { link: "Contact", path: "contact" },
+    { link: "Home", path: "/" },
+    { link: "About", path: "/whyChoose" },
+    { link: "Services", path: "/services" },
+    { link: "Testimonials", path: "/testimonials" },
+    { link: "Brochure", path: "/brochure" },
+    { link: "Contact", path: "/contact" },
   ];
 
   return (
@@ -37,7 +44,10 @@ const Header = () => {
         </ul>
 
         {/* Mobile Menu Button */}
-        <div className="flex justify-center items-center lg:hidden" onClick={toggle_menu}>
+        <div
+          className="flex justify-center items-center lg:hidden"
+          onClick={toggle_menu}
+        >
           {is_menu_open ? (
             <FaXmark className="text-white text-2xl cursor-pointer" />
           ) : (
@@ -63,7 +73,12 @@ const Header = () => {
             ))}
           </ul>
         </div>
-        <button className="bg-[#aa9e5f] px-8 py-3 rounded-full hover:bg-white hover:text-black font-bold mt-3 hidden lg:flex trasform hover:scale-110  transition-transform duration300 cursor-pointer ">BOOK APPOINTMENT</button>
+        <button
+          onClick={goToAppointment}
+          className="bg-[#aa9e5f] px-8 py-3 rounded-full hover:bg-white hover:text-black font-bold mt-3 hidden lg:flex trasform hover:scale-110  transition-transform duration300 cursor-pointer "
+        >
+          BOOK APPOINTMENT
+        </button>
       </nav>
     </>
   );
