@@ -3,8 +3,14 @@ import whyimg from "../assets/images/why3.webp";
 import { FaAngleDoubleRight } from "react-icons/fa";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { useNavigate } from "react-router-dom";
 
 const WhyChoose = () => {
+  const navigate = useNavigate(); // init an empty navigate
+  const goToAppointment = () => {
+    navigate("/appointment"); // go to appointment
+  };
+
   useEffect(() => {
     AOS.init({
       offset: 200,
@@ -34,13 +40,16 @@ const WhyChoose = () => {
           <p className="text-xl text-black font-lg">FRIDAY 10AM - 8PM</p>
           <p className="text-xl text-black font-lg">SATURDAY 10AM - 8PM</p>
         </div>
-        <button className="px-10 py-4 rounded-xl border-2 border-black text-black font-semibold text-lg hover:bg-black hover:text-white mt-6">
+        <button
+          onClick={goToAppointment}
+          className="px-10 py-4 rounded-xl border-2 border-black text-black font-semibold text-lg hover:bg-black hover:text-white mt-6"
+        >
           BOOK ONLINE
         </button>
       </div>
       <div
-        data-aoS="slide-up"
-        data-aoS-delay="200"
+        data-aos="slide-up"
+        data-aos-delay="200"
         className="md:w-[40%] w-full flex flex-col justify-center items-start gap-6 h-fit"
       >
         <h1 className="text-6xl text-white font-bold text-center">
@@ -60,31 +69,38 @@ const WhyChoose = () => {
               Always welcoming environment
             </h1>
           </div>
-            <div id="icon-box" className="flex justify-center items-center gap-3">
+          <div id="icon-box" className="flex justify-center items-center gap-3">
             <FaAngleDoubleRight className="text-white size-6" />
             <h1 className="text-xl text-white font-semibold">
               Always welcoming environment
             </h1>
           </div>
-            <div id="icon-box" className="flex justify-center items-center gap-3">
+          <div id="icon-box" className="flex justify-center items-center gap-3">
             <FaAngleDoubleRight className="text-white size-6" />
             <h1 className="text-xl text-white font-semibold">
               Always welcoming environment
             </h1>
           </div>
-            <div id="icon-box" className="flex justify-center items-center gap-3">
+          <div id="icon-box" className="flex justify-center items-center gap-3">
             <FaAngleDoubleRight className="text-white size-6" />
             <h1 className="text-xl text-white font-semibold">
               Always welcoming environment
             </h1>
           </div>
 
-            <div id="icon-box" className="flex justify-center items-center gap-3">
+          <div id="icon-box" className="flex justify-center items-center gap-3">
             <FaAngleDoubleRight className="text-white size-6" />
             <h1 className="text-xl text-white font-semibold">
               Always welcoming environment
             </h1>
           </div>
+
+          <button
+            onClick={goToAppointment}
+            className="px-10 py-4 bg-white text-black  rounded-x font-semibold rounded-xl hover:bg-[#a39446] hover:text-black"
+          >
+            BOOK APPOINTMENT
+          </button>
         </div>
       </div>
     </section>
