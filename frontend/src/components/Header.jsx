@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaXmark, FaBars } from "react-icons/fa6";
 import Appointment from "./Appointment";
+import Pricing from "../pages/Pricing";
 const Header = () => {
   // i use navigate for link the appointment comp into button
   const navigate = useNavigate(); // init an empty navigate
@@ -19,6 +20,7 @@ const Header = () => {
     { link: "Testimonials", path: "/testimonials" },
     { link: "Brochure", path: "/brochure" },
     { link: "Contact", path: "/contact" },
+    { link: "pricing", path: "/pricing" },
   ];
 
   return (

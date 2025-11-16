@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import haircuting from "../assets/images/hero.jpg";
 import WhyChoose from "./WhyChoose";
+import Pricing from "./Pricing";
 import Footer from "../components/Footer"
 import { FaLocationDot } from "react-icons/fa6";
 import { MdHeadphones, MdOutlinePhoneAndroid } from "react-icons/md";
@@ -187,6 +188,7 @@ const Hero = () => {
         </div>
       </section>
       <WhyChoose />
+      <Pricing/>
       <Footer />
     </>
   );
