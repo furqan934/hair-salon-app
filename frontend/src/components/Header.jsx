@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaXmark, FaBars } from "react-icons/fa6";
-import Appointment from "./Appointment";
-import Pricing from "../pages/Pricing";
+
 const Header = () => {
-  // i use navigate for link the appointment comp into button
-  const navigate = useNavigate(); // init an empty navigate
+  const navigate = useNavigate();
   const goToAppointment = () => {
-    navigate("/appointment"); // go to appointment
+    navigate("/appointment");
   };
 
   const [is_menu_open, set_is_menu_open] = useState(false);
@@ -20,34 +18,44 @@ const Header = () => {
     { link: "Testimonials", path: "/testimonials" },
     { link: "Brochure", path: "/brochure" },
     { link: "Contact", path: "/contact" },
-    { link: "pricing", path: "/pricing" },
+    { link: "Pricing", path: "/pricing" },
+    { link: "Gallery", path: "/gallery" }
   ];
 
   return (
     <>
-      <nav className="flex justify-between items-center gap-4 bg-black lg:px-10 px-4 py-6 top-0 z-30 border-[8px] border-[#a39446]">
+      <nav className="flex justify-between items-center gap-4 bg-black lg:px-10 px-4 py-4 top-0 z-50 border-b-4 border-[#a39446] fixed w-full">
+        {/* Logo */}
         <div id="logo">
-          <h1 className="text-white font-bold text-3xl md:text-5xl">
+          <h1 className="text-white font-bold text-2xl md:text-4xl">
             Hair & <span className="italic text-[#aa9e5f]">Hair Saloon</span>
           </h1>
         </div>
 
         {/* Desktop Menu */}
-        <ul className="hidden lg:flex justify-center items-center gap-6">
+        <ul className="hidden lg:flex justify-center items-center gap-4">
           {nav_items.map(({ link, path }) => (
             <Link
               key={path}
               to={path}
-              className="text-white uppercase font-semibold cursor-pointer p-3 rounded-lg hover:bg-[#aa9e5f] hover:text-black"
+              className="text-white uppercase font-semibold text-sm cursor-pointer px-4 py-2 rounded-lg hover:bg-[#aa9e5f] hover:text-black transition-all duration-300"
             >
               {link}
             </Link>
           ))}
         </ul>
 
+        {/* Desktop Button */}
+        <button
+          onClick={goToAppointment}
+          className="bg-[#aa9e5f] px-6 py-2 rounded-full hover:bg-white hover:text-black font-bold hidden lg:flex transform hover:scale-105 transition-transform duration-300 cursor-pointer text-sm"
+        >
+          BOOK NOW
+        </button>
+
         {/* Mobile Menu Button */}
         <div
-          className="flex justify-center items-center lg:hidden"
+          className="flex justify-center items-center lg:hidden z-50"
           onClick={toggle_menu}
         >
           {is_menu_open ? (
@@ -57,31 +65,58 @@ const Header = () => {
           )}
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu Overlay */}
+        {is_menu_open && (
+          <div 
+            className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
+            onClick={toggle_menu}
+          ></div>
+        )}
+
+        {/* Mobile Menu - Fixed positioning */}
         <div
           className={`${
-            is_menu_open ? "flex" : "hidden"
-          } w-full bg-slate-800 flex-col absolute top-[80px] left-0 p-4 lg:hidden`}
+            is_menu_open ? "translate-x-0" : "translate-x-full"
+          } fixed top-0 right-0 w-80 h-full bg-slate-900 z-50 p-6 transition-transform duration-300 lg:hidden flex flex-col overflow-y-auto`}
         >
-          <ul className="flex flex-col justify-center items-center gap-4">
+          {/* Close Button */}
+          <div className="flex justify-between items-center mb-8">
+            <h2 className="text-white text-xl font-bold">Menu</h2>
+            <FaXmark 
+              className="text-white text-2xl cursor-pointer" 
+              onClick={toggle_menu}
+            />
+          </div>
+
+          {/* Mobile Menu Items */}
+          <ul className="flex flex-col justify-start items-start gap-2 flex-1">
             {nav_items.map(({ link, path }) => (
               <Link
                 key={path}
                 to={path}
-                className="text-white uppercase font-semibold cursor-pointer p-3 rounded-lg hover:bg-[#aa9e5f] hover:text-black w-full text-center"
+                className="text-white uppercase font-semibold cursor-pointer p-4 rounded-lg hover:bg-[#aa9e5f] hover:text-black w-full text-left transition-all duration-300 border-b border-gray-700"
+                onClick={toggle_menu}
               >
                 {link}
               </Link>
             ))}
           </ul>
+
+          {/* Mobile Appointment Button */}
+          <button
+            onClick={() => {
+              goToAppointment();
+              toggle_menu();
+            }}
+            className="bg-[#aa9e5f] px-6 py-4 rounded-full hover:bg-white hover:text-black font-bold transform hover:scale-105 transition-transform duration-300 cursor-pointer w-full mt-4"
+          >
+            BOOK APPOINTMENT
+          </button>
         </div>
-        <button
-          onClick={goToAppointment}
-          className="bg-[#aa9e5f] px-8 py-3 rounded-full hover:bg-white hover:text-black font-bold mt-3 hidden lg:flex trasform hover:scale-110  transition-transform duration300 cursor-pointer "
-        >
-          BOOK APPOINTMENT
-        </button>
       </nav>
+
+      {/* Add padding to prevent content from being hidden under fixed header */}
+      <div style={{ paddingTop: '80px' }}></div>
     </>
   );
 };

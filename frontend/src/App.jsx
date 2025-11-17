@@ -6,6 +6,8 @@ import Header from "./components/Header";
 import Hero from "./pages/Hero";
 import WhyChoose from "./pages/WhyChoose";
 import Pricing from "./pages/Pricing";
+import Services from "./pages/Services"
+import Gallery from "./pages/Gallery";
 import Appointment from "./components/Appointment";
 import Brochure from "./components/Brochure"
 import Footer from "./components/Footer";
@@ -22,6 +24,8 @@ const App = () => {
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/appointment" element={<Appointment />} />
         <Route path="/brochure" element={<Brochure />} />
+        <Route path="/services" element={<Services/>} />
+         <Route path="/gallery" element={<Gallery/>} />
         <Route path="/footer"  element={<Footer />} />
       </Routes>
     </>
