@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import servicesimg from "../assets/images/servicimg.jpg";
-import service1 from "../assets/images/ser1.png";
-import service2 from "../assets/images/ser2.png";
-import service3 from "../assets/images/ser3.png";
-import service4 from "../assets/images/ser4.png";
+import servicesimg from "../assets/Images/servicimg.jpg";
+import service2 from "../assets/Images/ser2.png";
+import service3 from "../assets/Images/ser3.png";
+import service1 from "../assets/Images/ser1.png";
+import service4 from "../assets/Images/ser4.png";
 import AOS from "aos";
 import "aos/dist/aos.css";
 

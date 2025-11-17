@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import gal1 from '../assets/images/gal1.jpg';
-import gal2 from '../assets/images/gal2.jpg';
-import gal3 from '../assets/images/gal3.jpg';
-import gal4 from '../assets/images/gal4.jpg';
-import gal5 from '../assets/images/gal5.jpg';
-import gal6 from '../assets/images/gal6.jpg';
+import gal1 from '../assets/Images/gal1.jpg';
+import gal2 from '../assets/Images/gal2.jpg';
+import gal3 from '../assets/Images/gal3.jpg';
+import gal4 from '../assets/Images/gal4.jpg';
+import gal5 from '../assets/Images/gal5.jpg';
+import gal6 from '../assets/Images/gal6.jpg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
