@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import haircuting from "../assets/images/hero.jpg";
 import WhyChoose from "./WhyChoose";
 import Pricing from "./Pricing";
+import Services from "./Services"
+import Gallery from "./Gallery";
 import Footer from "../components/Footer"
 import { FaLocationDot } from "react-icons/fa6";
 import { MdHeadphones, MdOutlinePhoneAndroid } from "react-icons/md";
@@ -15,25 +17,28 @@ import womenhair from "../assets/images/womenhair.png";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useNavigate } from "react-router-dom";
+
 const Hero = () => {
-  const navigate = useNavigate(); // init an empty navigate
+  const navigate = useNavigate();
   const goToAppointment = () => {
-    navigate("/appointment"); // go to appointment
+    navigate("/appointment");
   };
 
   useEffect(() => {
     AOS.init({
       duration: 800,
       delay: 100,
-      easeing: "ease-in-sine",
+      easing: "ease-in-sine", // Fixed typo: easeing -> easing
       offset: 200,
     });
-  });
+  }, []); // Added empty dependency array
+
   return (
     <>
+      {/* Add top padding to account for fixed navbar */}
       <section
         id="hero"
-        className="w-full md:px-[120px] px-10 flex flex-col justify-center items-center gap-20 md:flex-row"
+        className="w-full md:px-[120px] px-10 flex flex-col justify-center items-center gap-20 md:flex-row pt-24" // Added pt-24
       >
         <div
           id="content-box"
@@ -91,29 +96,22 @@ const Hero = () => {
           </div>
 
           <button
-            onClick={goToAppointment} // added feature
+            onClick={goToAppointment}
             data-aos="zoom-in"
-            className="px-10 py-4 rounded-xl border-2 border-black text-black font-semibold text-lg hover:bg-black hover:text-white"
+            className="px-10 py-4 rounded-xl border-2 border-black text-black font-semibold text-lg hover:bg-black hover:text-white transition-all duration-300"
           >
             Book Now
           </button>
         </div>
-        <div data-os="zoom-in" id="image-box" className="md:w-[50%] w-full">
-          <img
-            src={heroimg}
-            alt=""
-            className="rounded-xl w-full md:h-[700] h-[500px]"
-          />
-        </div>
+      <div data-aos="zoom-in" id="image-box" className="md:w-[50%] w-full">
+  <img
+    src={heroimg}
+    alt="Professional Barbershop Services"
+    className="rounded-xl w-full md:h-[600px] h-[400px] object-cover shadow-2xl"
+  />
+</div>
       </section>
 
-      <section>
-        {/* <div>
-          <img src="" alt="" />
-          <h1>Regular Hair Cut</h1>
-          <button>More</button>
-        </div> */}
-      </section>
       <section className="grid grid-cols-1 md:grid-cols-4 justify-center items-start w-full md:px-[120px] px-10 py-10 gap-10">
         <div
           data-aos="zoom-in"
@@ -125,70 +123,72 @@ const Hero = () => {
             alt="Scissors"
             className="size-16 transform hover:scale-110 transition-transform duration-300 cursor-pointer"
           />
-          <h1 className="text-2xl flex-1 text-black font-semibold">
+          <h1 className="text-2xl flex-1 text-black font-semibold text-center">
             Regular Haircut
           </h1>
-          <button className="px-10 py-3 bg-black text-white text-md font-semibold rounded-xl  hover:bg-amber-500 hover:text-black cursor-pointer">
+          <button className="px-10 py-3 bg-black text-white text-md font-semibold rounded-xl hover:bg-amber-500 hover:text-black cursor-pointer transition-all duration-300">
             MORE
           </button>
         </div>
 
         <div
           data-aos="zoom-in"
-          data-aos-delay="200"
+          data-aos-delay="300"
           className="flex flex-col justify-center items-center gap-4"
         >
           <img
             src={menshair}
-            alt="Scissors"
+            alt="Men's Hair"
             className="size-16 transform hover:scale-110 transition-transform duration-300 cursor-pointer"
           />
-          <h1 className="text-2xl flex-1 text-black font-semibold">
-            Regular Haircut
+          <h1 className="text-2xl flex-1 text-black font-semibold text-center">
+            Men's Styling
           </h1>
-          <button className="px-10 py-3 bg-black text-white text-md font-semibold rounded-xl  hover:bg-amber-500 hover:text-black cursor-pointer">
+          <button className="px-10 py-3 bg-black text-white text-md font-semibold rounded-xl hover:bg-amber-500 hover:text-black cursor-pointer transition-all duration-300">
             MORE
           </button>
         </div>
 
         <div
           data-aos="zoom-in"
-          data-aos-delay="200"
+          data-aos-delay="400"
           className="flex flex-col justify-center items-center gap-4"
         >
           <img
             src={womenhair}
-            alt="Scissors"
+            alt="Women's Hair"
             className="size-16 transform hover:scale-110 transition-transform duration-300 cursor-pointer"
           />
-          <h1 className="text-2xl flex-1 text-black font-semibold">
-            Regular Haircut
+          <h1 className="text-2xl flex-1 text-black font-semibold text-center">
+            Women's Styling
           </h1>
-          <button className="px-10 py-3 bg-black text-white text-md font-semibold rounded-xl  hover:bg-amber-500 hover:text-black cursor-pointer">
+          <button className="px-10 py-3 bg-black text-white text-md font-semibold rounded-xl hover:bg-amber-500 hover:text-black cursor-pointer transition-all duration-300">
             MORE
           </button>
         </div>
 
         <div
           data-aos="zoom-in"
-          data-aos-delay="200"
+          data-aos-delay="500"
           className="flex flex-col justify-center items-center gap-4"
         >
           <img
             src={trimmer}
-            alt="Scissors"
+            alt="Trimmer"
             className="size-16 transform hover:scale-110 transition-transform duration-300 cursor-pointer"
           />
-          <h1 className="text-2xl flex-1 text-black font-semibold">
-            Regular Haircut
+          <h1 className="text-2xl flex-1 text-black font-semibold text-center">
+            Beard Trimming
           </h1>
-          <button className="px-10 py-3 bg-black text-white text-md font-semibold rounded-xl  hover:bg-amber-500 hover:text-black cursor-pointer">
+          <button className="px-10 py-3 bg-black text-white text-md font-semibold rounded-xl hover:bg-amber-500 hover:text-black cursor-pointer transition-all duration-300">
             MORE
           </button>
         </div>
       </section>
       <WhyChoose />
       <Pricing/>
+      <Services/>
+      <Gallery/>
       <Footer />
     </>
   );
