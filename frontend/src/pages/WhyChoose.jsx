@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import whyimg from "../assets/images/why3.webp";
+import whyimg from "../assets/Images/why3.webp";
 import { FaAngleDoubleRight } from "react-icons/fa";
 import AOS from "aos";
 import "aos/dist/aos.css";
