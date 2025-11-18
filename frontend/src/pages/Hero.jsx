@@ -2,9 +2,10 @@ import React, { useEffect } from "react";
 import haircuting from "../assets/images/hero.jpg";
 import WhyChoose from "./WhyChoose";
 import Pricing from "./Pricing";
-import Services from "./Services"
+import Services from "./Services";
 import Gallery from "./Gallery";
-import Footer from "../components/Footer"
+import Footer from "../components/Footer";
+import Contact from "./Contact";
 import { FaLocationDot } from "react-icons/fa6";
 import { MdHeadphones, MdOutlinePhoneAndroid } from "react-icons/md";
 import { FaHeadphones } from "react-icons/fa6";
@@ -17,8 +18,37 @@ import womenhair from "../assets/images/womenhair.png";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const Hero = () => {
+  // the below section of code is added for the hero head h1.
+  const typewriter_text = "Welcome to Hair & Hair Salon";
+
+  const [display_text, set_display_text] = useState("");
+  const [current_index, set_current_index] = useState(0);
+  const [cursor_visible, set_cursor_visible] = useState(true);
+
+  // Typewriter Effect
+  useEffect(() => {
+    if (current_index >= typewriter_text.length) return;
+
+    const timeout = setTimeout(() => {
+      set_display_text((prev) => prev + typewriter_text[current_index]);
+      set_current_index((prev) => prev + 1);
+    }, 100);
+
+    return () => clearTimeout(timeout);
+  }, [current_index]);
+
+  // Blinking Cursor Effect
+  useEffect(() => {
+    const cursor_timer = setInterval(() => {
+      set_cursor_visible((prev) => !prev);
+    }, 500);
+
+    return () => clearInterval(cursor_timer);
+  }, []);
+
   const navigate = useNavigate();
   const goToAppointment = () => {
     navigate("/appointment");
@@ -44,9 +74,25 @@ const Hero = () => {
           id="content-box"
           className="flex flex-col justify-center items-start gap-10"
         >
-          <h1 data-aos="zoom-in" className="text-2xl text-black font-semibold">
-            WELCOME TO
+          {/* <h1 data-aos="zoom-in" className="text-2xl text-black font-semibold"> */}
+            {/* WELCOME TO */}
+            {/* {display_text} */}
+          {/* </h1> */}
+          {/* i added the new animation in the hero page  */}
+          <h1
+            data-aos="zoom-in"
+            className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#a39446] to-black bg-clip-text text-transparent tracking-wide"
+          >
+            {display_text}
+            <span
+              className={`${
+                cursor_visible ? "opacity-100" : "opacity-0"
+              } text-black`}
+            >
+              |
+            </span>
           </h1>
+
           <h1 data-aos="zoom-in" className="text-6xl text-black font-bold">
             Barbershop
             <br /> in Manhattan
@@ -103,13 +149,13 @@ const Hero = () => {
             Book Now
           </button>
         </div>
-      <div data-aos="zoom-in" id="image-box" className="md:w-[50%] w-full">
-  <img
-    src={heroimg}
-    alt="Professional Barbershop Services"
-    className="rounded-xl w-full md:h-[600px] h-[400px] object-cover shadow-2xl"
-  />
-</div>
+        <div data-aos="zoom-in" id="image-box" className="md:w-[50%] w-full">
+          <img
+            src={heroimg}
+            alt="Professional Barbershop Services"
+            className="rounded-xl w-full md:h-[600px] h-[400px] object-cover shadow-2xl"
+          />
+        </div>
       </section>
 
       <section className="grid grid-cols-1 md:grid-cols-4 justify-center items-start w-full md:px-[120px] px-10 py-10 gap-10">
@@ -186,9 +232,10 @@ const Hero = () => {
         </div>
       </section>
       <WhyChoose />
-      <Pricing/>
-      <Services/>
-      <Gallery/>
+      <Pricing />
+      <Services />
+      <Gallery />
+      <Contact />
       <Footer />
     </>
   );
