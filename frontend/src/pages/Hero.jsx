@@ -8,7 +8,6 @@ import Footer from "../components/Footer";
 import Contact from "./Contact";
 
 import Testimonial from "./Testimonial";
-import Footer from "../components/Footer";
 import { FaLocationDot } from "react-icons/fa6";
 import { MdHeadphones, MdOutlinePhoneAndroid } from "react-icons/md";
 import { FaHeadphones } from "react-icons/fa6";
@@ -235,9 +234,6 @@ const Hero = () => {
         </div>
       </section>
       <WhyChoose />
-      <Pricing />
-      <Services />
-      <Gallery />
       <Pricing />
       <Services />
       <Gallery />
