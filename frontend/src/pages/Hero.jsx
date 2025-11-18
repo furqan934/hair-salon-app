@@ -4,6 +4,7 @@ import WhyChoose from "./WhyChoose";
 import Pricing from "./Pricing";
 import Services from "./Services"
 import Gallery from "./Gallery";
+import Testimonial from "./Testimonial";
 import Footer from "../components/Footer"
 import { FaLocationDot } from "react-icons/fa6";
 import { MdHeadphones, MdOutlinePhoneAndroid } from "react-icons/md";
@@ -189,6 +190,7 @@ const Hero = () => {
       <Pricing/>
       <Services/>
       <Gallery/>
+      <Testimonial/>
       <Footer />
     </>
   );
