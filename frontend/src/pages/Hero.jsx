@@ -1,20 +1,23 @@
 import React, { useEffect } from "react";
-import haircuting from "../assets/images/hero.jpg";
+import haircuting from "../assets/Images/hero.jpg";
 import WhyChoose from "./WhyChoose";
 import Pricing from "./Pricing";
 import Services from "./Services";
 import Gallery from "./Gallery";
 import Footer from "../components/Footer";
 import Contact from "./Contact";
+
+import Testimonial from "./Testimonial";
+import Footer from "../components/Footer";
 import { FaLocationDot } from "react-icons/fa6";
 import { MdHeadphones, MdOutlinePhoneAndroid } from "react-icons/md";
 import { FaHeadphones } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
-import heroimg from "../assets/images/hero.jpg";
-import sissor from "../assets/images/sissor.png";
-import menshair from "../assets/images/menshair.png";
-import trimmer from "../assets/images/trimmer.png";
-import womenhair from "../assets/images/womenhair.png";
+import heroimg from "../assets/Images/hero.jpg";
+import sissor from "../assets/Images/sissor.png";
+import menshair from "../assets/Images/menshair.png";
+import trimmer from "../assets/Images/trimmer.png";
+import womenhair from "../assets/Images/womenhair.png";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useNavigate } from "react-router-dom";
@@ -75,8 +78,8 @@ const Hero = () => {
           className="flex flex-col justify-center items-start gap-10"
         >
           {/* <h1 data-aos="zoom-in" className="text-2xl text-black font-semibold"> */}
-            {/* WELCOME TO */}
-            {/* {display_text} */}
+          {/* WELCOME TO */}
+          {/* {display_text} */}
           {/* </h1> */}
           {/* i added the new animation in the hero page  */}
           <h1
@@ -235,7 +238,12 @@ const Hero = () => {
       <Pricing />
       <Services />
       <Gallery />
+      <Pricing />
+      <Services />
+      <Gallery />
+      <Testimonial />
       <Contact />
+
       <Footer />
     </>
   );

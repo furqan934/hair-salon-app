@@ -11,7 +11,8 @@ import Gallery from "./pages/Gallery";
 import Appointment from "./components/Appointment";
 import Brochure from "./components/Brochure"
 import Footer from "./components/Footer";
-import Contact from "./pages/Contact"
+import Contact from "./pages/Contact";
+import Testimonial from "./pages/Testimonial";
 
 const App = () => {
   return (
@@ -27,8 +28,12 @@ const App = () => {
         <Route path="/brochure" element={<Brochure />} />
         <Route path="/services" element={<Services/>} />
          <Route path="/gallery" element={<Gallery/>} />
+        <Route path="/testimonial"  element={<Testimonial />} />
         <Route path="/footer"  element={<Footer />} />
+
         <Route path="/contact" element={<Contact />}/>
+
+
       </Routes>
     </>
   );
