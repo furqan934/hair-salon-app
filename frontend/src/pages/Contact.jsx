@@ -89,7 +89,7 @@ const ContactUs = () => {
             </div>
             <div>
               <h3 className="font-bold text-lg">Our Location</h3>
-              <p>99 S.t Jomblo Park Pekanbaru 28292, Indonesia</p>
+              <p>Shop 1,2,3,4,5, Arbab Shakeel plaza, University Rd, Wahidabad Rahat Abad, Peshawar</p>
             </div>
           </div>
 
@@ -103,7 +103,7 @@ const ContactUs = () => {
             </div>
             <div>
               <h3 className="font-bold text-lg">Phone Number</h3>
-              <p>(+62)81 414 257 9980</p>
+              <p>(+92) 333 2828289</p>
             </div>
           </div>
 
@@ -117,7 +117,7 @@ const ContactUs = () => {
             </div>
             <div>
               <h3 className="font-bold text-lg">Email Address</h3>
-              <p>info@yourdomain.com</p>
+              <p>muhammadalibangash059@gmail.com</p>
             </div>
           </div>
         </div>

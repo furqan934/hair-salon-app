@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { FaXmark, FaBars } from "react-icons/fa6";
+import { FaXmark, FaBars ,FaSun ,FaMoon} from "react-icons/fa6";
 
+const Header = ({ theme, seTheme }) => {
+  const toggle_theme = () => {
+    seTheme(theme === "dark" ? "light" : "dark");
+  };
 
-const Header = () => {
   const navigate = useNavigate();
   const goToAppointment = () => {
     navigate("/appointment");
@@ -20,7 +23,7 @@ const Header = () => {
     { link: "Brochure", path: "/brochure" },
     { link: "Contact", path: "/contact" },
     { link: "Pricing", path: "/pricing" },
-    { link: "Gallery", path: "/gallery" }
+    { link: "Gallery", path: "/gallery" },
   ];
 
   return (
@@ -53,7 +56,13 @@ const Header = () => {
         >
           BOOK NOW
         </button>
-
+        {/* theme toggle for dekstop site*/}
+        <button
+          onClick={toggle_theme}
+          className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-black dark:text-white transition-all duration-300"
+        >
+          {theme === "dark" ? <FaSun size={18} /> : <FaMoon size={18} />}
+        </button>
         {/* Mobile Menu Button */}
         <div
           className="flex justify-center items-center lg:hidden z-50"
@@ -68,7 +77,7 @@ const Header = () => {
 
         {/* Mobile Menu Overlay */}
         {is_menu_open && (
-          <div 
+          <div
             className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
             onClick={toggle_menu}
           ></div>
@@ -83,11 +92,19 @@ const Header = () => {
           {/* Close Button */}
           <div className="flex justify-between items-center mb-8">
             <h2 className="text-white text-xl font-bold">Menu</h2>
-            <FaXmark 
-              className="text-white text-2xl cursor-pointer" 
+            <FaXmark
+              className="text-white text-2xl cursor-pointer"
               onClick={toggle_menu}
             />
           </div>
+
+          {/* mobile theme toggle  */}
+          <button
+            onClick={toggle_theme}
+            className="mb-4 p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-black dark:text-white transition-all duration-300 self-start"
+          >
+            {theme === "dark" ? <FaSun size={20} /> : <FaMoon size={20} />}
+          </button>
 
           {/* Mobile Menu Items */}
           <ul className="flex flex-col justify-start items-start gap-2 flex-1">
@@ -117,7 +134,7 @@ const Header = () => {
       </nav>
 
       {/* Add padding to prevent content from being hidden under fixed header */}
-      <div style={{ paddingTop: '80px' }}></div>
+      <div style={{ paddingTop: "80px" }}></div>
     </>
   );
 };
