@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import emailjs from "@emailjs/browser";
 
 const ContactUs = () => {
+  
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -29,43 +31,46 @@ const ContactUs = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    // const updatedData = { ...formData, [name]: value };
-    // setFormData(updatedData);
-    // const old_data = JSON.parse(localStorage.getItem("contactForm"))
-
-    // localStorage.setItem("contactForm", JSON.stringify(updatedData));
     setFormData((prevData) => ({
       ...prevData,
       [name]: value,
     }));
   };
 
-  // Handle the final submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log("Form Submitted:", formData);
-    // alert("Thank you for contacting us!");
-    // setFormData({ name: "", email: "", subject: "", message: "" });
-    // localStorage.removeItem("contactForm");
+
+    // Save data in localStorage
     const oldData = JSON.parse(localStorage.getItem("contactForms")) || [];
-
-    // add the form data in array
     oldData.push(formData);
-
-    // set the updated array
     localStorage.setItem("contactForms", JSON.stringify(oldData));
 
-    alert(
-      "Your message has been successfully sent! We will get back to you soon."
-    );
-
-    //  reset the form
-    setFormData({
-      name: "",
-      email: " ",
-      subject: " ",
-      message: " ",
-    });
+    // Send email via EmailJS
+    emailjs
+      .send(
+        "service_7z5f1e2", // replace with your Service ID
+        "template_u1jum4g", // replace with your Template ID
+        formData,
+        "uhG_H5-MlpflccQxX" // replace with your EmailJS public key
+      )
+      .then(
+        (response) => {
+          console.log("Email sent!", response.status, response.text);
+          alert(
+            "Your message has been successfully sent! We will get back to you soon."
+          );
+          setFormData({
+            name: "",
+            email: "",
+            subject: "",
+            message: "",
+          });
+        },
+        (error) => {
+          console.error("Email send failed:", error);
+          alert("Oops! Something went wrong. Please try again later.");
+        }
+      );
   };
 
   return (
@@ -89,7 +94,10 @@ const ContactUs = () => {
             </div>
             <div>
               <h3 className="font-bold text-lg">Our Location</h3>
-              <p>Shop 1,2,3,4,5, Arbab Shakeel plaza, University Rd, Wahidabad Rahat Abad, Peshawar</p>
+              <p>
+                Shop 1,2,3,4,5, Arbab Shakeel plaza, University Rd, Wahidabad
+                Rahat Abad, Peshawar
+              </p>
             </div>
           </div>
 
