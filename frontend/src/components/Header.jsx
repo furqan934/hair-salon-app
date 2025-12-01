@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { FaXmark, FaBars ,FaSun ,FaMoon} from "react-icons/fa6";
+import { FaXmark, FaBars, FaSun, FaMoon } from "react-icons/fa6";
 
 const Header = ({ theme, seTheme }) => {
   const toggle_theme = () => {
@@ -11,6 +11,8 @@ const Header = ({ theme, seTheme }) => {
   const goToAppointment = () => {
     navigate("/appointment");
   };
+  const goToSignup = () => navigate("/signup");
+  const goToLogin = () => navigate("/login");
 
   const [is_menu_open, set_is_menu_open] = useState(false);
   const toggle_menu = () => set_is_menu_open(!is_menu_open);
@@ -56,6 +58,21 @@ const Header = ({ theme, seTheme }) => {
         >
           BOOK NOW
         </button>
+        {/* signup and login buttons */}
+         <button
+            onClick={goToSignup}
+            className="bg-transparent border border-[#aa9e5f] px-4 py-2 rounded-full text-white hover:bg-[#aa9e5f] hover:text-black font-semibold transition-all duration-300"
+          >
+            SIGNUP
+          </button>
+
+          <button
+            onClick={goToLogin}
+            className="bg-transparent border border-[#aa9e5f] px-4 py-2 rounded-full text-white hover:bg-[#aa9e5f] hover:text-black font-semibold transition-all duration-300"
+          >
+            LOGIN
+          </button>
+
         {/* theme toggle for dekstop site*/}
         <button
           onClick={toggle_theme}
@@ -129,6 +146,26 @@ const Header = ({ theme, seTheme }) => {
             className="bg-[#aa9e5f] px-6 py-4 rounded-full hover:bg-white hover:text-black font-bold transform hover:scale-105 transition-transform duration-300 cursor-pointer w-full mt-4"
           >
             BOOK APPOINTMENT
+          </button>
+          {/* signup button */}
+          <button
+            onClick={() => {
+              goToSignup();
+              toggle_menu();
+            }}
+            className="bg-transparent border border-[#aa9e5f] px-4 py-3 rounded-full text-white hover:bg-[#aa9e5f] hover:text-black font-semibold w-full transition-all duration-300"
+          >
+            SIGNUP
+          </button>
+          {/* login buytton */}
+          <button
+            onClick={() => {
+              goToLogin();
+              toggle_menu();
+            }}
+            className="bg-transparent border border-[#aa9e5f] px-4 py-3 rounded-full text-white hover:bg-[#aa9e5f] hover:text-black font-semibold w-full transition-all duration-300"
+          >
+            LOGIN
           </button>
         </div>
       </nav>
