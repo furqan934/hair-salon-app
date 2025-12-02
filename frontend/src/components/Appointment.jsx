@@ -154,9 +154,9 @@ const BookAppointment = () => {
             </select>
           </div>
 
-          <button type="submit" disabled={loading}
+          <button type="submit" disabled={!user}
             className="w-full bg-[#a39446] text-white font-medium py-2 rounded-lg transition hover:bg-amber-500">
-            {loading ? "Booking..." : "Book Now"}
+            {user ? "Book Now" : "Login to Book"}
           </button>
         </form>
       </div>

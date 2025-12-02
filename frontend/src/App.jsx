@@ -1,6 +1,6 @@
 // export default App;
 import React, { useEffect, useState } from "react";
-import { Routes, Route } from "react-router-dom"; // ✅ no Router here
+import { Routes, Route,Router } from "react-router-dom"; // ✅ no Router here
 
 import Header from "./components/Header";
 import Hero from "./pages/Hero";
@@ -15,6 +15,7 @@ import Testimonial from "./pages/Testimonial";
 import Contact from "./pages/Contact";
 import WhatsAppButton from "./components/WhatsAppButton";
 import ScrollToTopButton from "./components/ScrollToTopButton";
+import ProtectedRoute from "./routes/ProtectedRoute";
 
 import Signup from "./pages/Signup"; // ✅ new
 import Login from "./pages/Login"; // ✅ new
@@ -34,29 +35,40 @@ const App = () => {
 
   return (
     <>
-      <Header theme={theme} seTheme={setTheme} />
-      <AuthProvider>
-      <Routes>
-        <Route path="/" element={<Hero />} />
-        <Route path="/hero" element={<Hero />} />
-        <Route path="/whyChoose" element={<WhyChoose />} />
-        <Route path="/pricing" element={<Pricing />} />
-        <Route path="/appointment" element={<Appointment />} />
-        <Route path="/brochure" element={<Brochure />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/gallery" element={<Gallery />} />
-        <Route path="/testimonial" element={<Testimonial />} />
-        <Route path="/footer" element={<Footer />} />
-        <Route path="/contact" element={<Contact />} />
+      
+        <Header theme={theme} seTheme={setTheme} />
+        <AuthProvider>
+          <Routes>
+            <Route path="/" element={<Hero />} />
+            <Route path="/hero" element={<Hero />} />
+            <Route path="/whyChoose" element={<WhyChoose />} />
+            <Route path="/pricing" element={<Pricing />} />
+            {/* <Route path="/appointment" element={<Appointment />} /> */}
+            <Route path="/brochure" element={<Brochure />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/testimonial" element={<Testimonial />} />
+            <Route path="/footer" element={<Footer />} />
+            <Route path="/contact" element={<Contact />} />
 
-        {/* ✅ Signup/Login */}
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/login" element={<Login />} />
-      </Routes>
-    </AuthProvider>
+            {/* ✅ Signup/Login */}
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/login" element={<Login />} />
 
-      <WhatsAppButton />
-      <ScrollToTopButton />
+            {/* if the user are login then goes to appointment page  */}
+            <Route
+              path="appointment"
+              element={
+                <ProtectedRoute>
+                  <Appointment />
+                </ProtectedRoute>
+              }
+            />
+          </Routes>
+
+          <WhatsAppButton />
+          <ScrollToTopButton />
+        </AuthProvider>
     </>
   );
 };
