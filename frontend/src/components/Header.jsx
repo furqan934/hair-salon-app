@@ -32,7 +32,7 @@ const Header = ({ theme, seTheme }) => {
     <>
       <nav className="flex justify-between items-center gap-4 bg-black lg:px-10 px-4 py-4 top-0 z-50 border-b-4 border-[#a39446] fixed w-full">
         {/* Logo */}
-        <div id="logo">
+        <div id="logo">aihair
           <h1 className="text-white font-bold text-2xl md:text-4xl">
             Hair & <span className="italic text-[#aa9e5f]">Hair Saloon</span>
           </h1>
@@ -58,20 +58,21 @@ const Header = ({ theme, seTheme }) => {
         >
           BOOK NOW
         </button>
-        {/* signup and login buttons */}
-         <button
-            onClick={goToSignup}
-            className="bg-transparent border border-[#aa9e5f] px-4 py-2 rounded-full text-white hover:bg-[#aa9e5f] hover:text-black font-semibold transition-all duration-300"
-          >
-            SIGNUP
-          </button>
 
-          <button
-            onClick={goToLogin}
-            className="bg-transparent border border-[#aa9e5f] px-4 py-2 rounded-full text-white hover:bg-[#aa9e5f] hover:text-black font-semibold transition-all duration-300"
-          >
-            LOGIN
-          </button>
+        {/* signup and login buttons */}
+        <button
+          onClick={goToSignup}
+          className="bg-transparent border border-[#aa9e5f] px-4 py-2 rounded-full text-white hover:bg-[#aa9e5f] hover:text-black font-semibold transition-all duration-300"
+        >
+          SIGNUP
+        </button>
+
+        <button
+          onClick={goToLogin}
+          className="bg-transparent border border-[#aa9e5f] px-4 py-2 rounded-full text-white hover:bg-[#aa9e5f] hover:text-black font-semibold transition-all duration-300"
+        >
+          LOGIN
+        </button>
 
         {/* theme toggle for dekstop site*/}
         <button
